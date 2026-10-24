@@ -1,11 +1,11 @@
 {
-  "name": "@red-cup-engineering/voice-audio-services-section",
+  "name": "@red-cup-engineering/voice-audio-engineering-services-section",
   "version": "0.1.1",
   "type": "module",
   "description": "Service boundary for speech-bearing audio and operations specialized to human voice.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/red-cup-engineering/voice-audio-services-section.git"
+    "url": "git+https://github.com/red-cup-engineering/voice-audio-engineering-services-section.git"
   },
   "exports": {
     ".": "./src/audiobook-edition.mjs",
