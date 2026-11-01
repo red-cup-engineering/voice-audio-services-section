@@ -5,9 +5,9 @@
  * not additions to SEN's core calculus; the code layer compiles them through
  * the injective JSON-to-SEN bridge.
  */
-import { canonicalJson } from "@red-cup-engineering/json-services-section/canonical-json";
-import { freezeJson } from "@red-cup-engineering/json-services-section/freeze-json";
+import { canonicalJson, canonicalizeJson } from "@red-cup-engineering/json-services-section/canonical-json";
 import { makeNiUri, isNiUri } from "@red-cup-engineering/uri-services-section/ni-uri";
+import { admitSourceAnchor } from "./source-anchor.mjs";
 
 const object = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
 const finite = (value) => typeof value === "number" && Number.isFinite(value);
@@ -15,7 +15,7 @@ const nonnegative = (value) => finite(value) && value >= 0;
 const utf8 = new TextEncoder();
 
 export const contentDigest = (value) => makeNiUri(utf8.encode(canonicalJson(value)));
-const immutable = (value) => freezeJson(structuredClone(value));
+const immutable = (value) => canonicalizeJson(value).value;
 
 function fail(path, message) {
   const error = new TypeError(`${path}: ${message}`);
@@ -63,7 +63,12 @@ function admitExpression(candidate, path, addresses) {
   if (tag === "narrate") {
     if (typeof options.id !== "string" || !options.id || typeof options.speakerId !== "string" || !options.speakerId || typeof options.text !== "string" || !options.text.trim()) fail(path, "narrate needs id, speakerId, and nonempty text");
     const anchor = fields(options.anchor, `${path}/1/anchor`);
-    if (typeof anchor.chapter !== "string" || !Number.isInteger(anchor.paragraph) || !Number.isInteger(anchor.sentence)) fail(`${path}/1/anchor`, "needs chapter, paragraph, and sentence manuscript coordinates");
+    if (["resource", "revision", "pointer"].some((field) => Object.hasOwn(anchor, field))) {
+      try { admitSourceAnchor(anchor); }
+      catch (error) { fail(`${path}/1/anchor`, error.message); }
+    } else if (typeof anchor.chapter !== "string" || !Number.isInteger(anchor.paragraph) || !Number.isInteger(anchor.sentence)) {
+      fail(`${path}/1/anchor`, "needs resource/revision/pointer or legacy chapter/paragraph/sentence coordinates");
+    }
   } else if (tag === "silence" || tag === "room-tone") {
     duration(options.durationSeconds, `${path}/1/durationSeconds`);
   } else {
