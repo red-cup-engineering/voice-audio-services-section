@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/red-cup-engineering/voice-audio-engineering-services-section/blob/main/specifications/speech-script.schema.json",
+  "title": "Speech script version 1",
+  "description": "Provider-independent explicit speech and pause data. Admission does not establish editorial, listening or broadcast acceptance. Runtime additionally enforces unique segment ids and the documented bounded canonical JSON envelope.",
+  "type": "object",
+  "required": [
+    "kind",
+    "id",
+    "title",
+    "language",
+    "source",
+    "segments"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "speech-script/v1"
+    },
+    "id": {
+      "$ref": "#/$defs/nonblank"
+    },
+    "title": {
+      "$ref": "#/$defs/nonblank"
+    },
+    "language": {
+      "$ref": "#/$defs/nonblank"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "resource",
+        "revision"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "resource": {
+          "$ref": "#/$defs/resource"
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1024,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "speakerId",
+          "text",
+          "sourcePointer",
+          "pauseAfterSeconds"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/nonblank"
+          },
+          "speakerId": {
+            "$ref": "#/$defs/nonblank"
+          },
+          "text": {
+            "$ref": "#/$defs/nonblank"
+          },
+          "sourcePointer": {
+            "$ref": "#/$defs/pointer"
+          },
+          "pauseAfterSeconds": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonblank": {
+      "type": "string",
+      "pattern": "\\S",
+      "maxLength": 65536
+    },
+    "resource": {
+      "type": "string",
+      "maxLength": 65536,
+      "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:(?:\\/\\/(?:(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|:)*@)?(?:(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=])*|\\[[^\\[\\]]+\\])(?::[0-9]*)?(?:\\/(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])*)*|\\/(?:(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])+(?:\\/(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])*)*)?|(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])+(?:\\/(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])*)*|)(?:\\?(?:(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])|[/?])*)?(?:#(?:(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2}|[!$&'()*+,;=]|[:@])|[/?])*)?(?![\\s\\S])",
+      "description": "RFC 3986 schemed URI component grammar. Runtime additionally validates bracketed IPv6 or IPvFuture literals; strings are admitted under the documented UTF-8 envelope."
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^ni:///sha-256;[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048](?![\\s\\S])"
+    },
+    "pointer": {
+      "type": "string",
+      "maxLength": 65536,
+      "pattern": "^(?:/(?:[^~]|~[01])*)*(?![\\s\\S])"
+    },
+    "sourceAnchor": {
+      "type": "object",
+      "required": [
+        "resource",
+        "revision",
+        "pointer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "resource": {
+          "$ref": "#/$defs/resource"
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        },
+        "pointer": {
+          "$ref": "#/$defs/pointer"
+        }
+      }
+    }
+  }
+}

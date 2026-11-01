@@ -1,0 +1,656 @@
+{
+  "provenance": {
+    "repository": "red-cup-engineering/voice-audio-engineering-services-section",
+    "revision": "79bd38b1fc47b2f570121e880fb06808414020e8",
+    "sourcePath": "src/audioplay-model.mjs",
+    "sourceGitBlob": "154d66c1fad07267f83ddb8fa970c4daed563adb",
+    "providerVersions": {
+      "json": "0.4.0",
+      "uri": "0.1.1",
+      "cryptographic": "0.3.1"
+    },
+    "captureMethod": "Exact original Git blob loaded with original installed provider versions; complete producer values captured independently of the candidate implementation."
+  },
+  "authored": {
+    "input": {
+      "score": [
+        "score",
+        {
+          "type": "SoundScore",
+          "version": 1,
+          "id": "compatibility",
+          "title": "Exact old score",
+          "language": "en-US",
+          "seed": 561
+        },
+        [
+          "scene",
+          "one",
+          [
+            "par",
+            [
+              "bed",
+              {
+                "id": "bed",
+                "generator": "fixture",
+                "seed": "a",
+                "durationSeconds": 4,
+                "params": {
+                  "amplitude": 0.25
+                }
+              }
+            ],
+            [
+              "duck",
+              {
+                "under": "speech",
+                "reductionDb": -6
+              },
+              [
+                "seq",
+                [
+                  "gain",
+                  {
+                    "db": -3
+                  },
+                  [
+                    "narrate",
+                    {
+                      "id": "a",
+                      "speakerId": "speaker",
+                      "text": "  Café / café. 🫖\n",
+                      "anchor": {
+                        "chapter": "a.md",
+                        "paragraph": 0,
+                        "sentence": 1,
+                        "additional": true
+                      }
+                    }
+                  ]
+                ],
+                [
+                  "silence",
+                  {
+                    "durationSeconds": 0
+                  }
+                ],
+                [
+                  "narrate",
+                  {
+                    "id": "credits",
+                    "speakerId": "speaker",
+                    "text": "Credit.",
+                    "anchor": {
+                      "chapter": "a.md",
+                      "paragraph": -1,
+                      "sentence": -1,
+                      "contentDigest": "ni:///sha-256;I-VU5YNXlRIBQ67zeIyDW_FL0G99j3F3wrs9Dy_PkyY"
+                    }
+                  }
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "cast": {
+        "type": "AudioplayCast",
+        "version": 1,
+        "members": [
+          {
+            "speakerId": "speaker",
+            "characterId": "reader",
+            "voice": {
+              "adapter": "fixture",
+              "voice": "v1",
+              "style": "plain"
+            }
+          }
+        ]
+      },
+      "manifestOptions": {
+        "pronunciationLexicon": [
+          {
+            "term": "Café",
+            "respelling": "cafe"
+          }
+        ],
+        "soundDesign": {
+          "stems": [
+            "speech"
+          ]
+        },
+        "renderer": {
+          "id": "fixture",
+          "version": 1
+        },
+        "projections": [
+          "wav"
+        ]
+      }
+    },
+    "expected": {
+      "score": {
+        "type": "AdmittedSoundScore",
+        "version": 1,
+        "score": [
+          "score",
+          {
+            "type": "SoundScore",
+            "version": 1,
+            "id": "compatibility",
+            "title": "Exact old score",
+            "language": "en-US",
+            "seed": 561
+          },
+          [
+            "scene",
+            "one",
+            [
+              "par",
+              [
+                "bed",
+                {
+                  "id": "bed",
+                  "generator": "fixture",
+                  "seed": "a",
+                  "durationSeconds": 4,
+                  "params": {
+                    "amplitude": 0.25
+                  }
+                }
+              ],
+              [
+                "duck",
+                {
+                  "under": "speech",
+                  "reductionDb": -6
+                },
+                [
+                  "seq",
+                  [
+                    "gain",
+                    {
+                      "db": -3
+                    },
+                    [
+                      "narrate",
+                      {
+                        "id": "a",
+                        "speakerId": "speaker",
+                        "text": "  Café / café. 🫖\n",
+                        "anchor": {
+                          "chapter": "a.md",
+                          "paragraph": 0,
+                          "sentence": 1,
+                          "additional": true
+                        }
+                      }
+                    ]
+                  ],
+                  [
+                    "silence",
+                    {
+                      "durationSeconds": 0
+                    }
+                  ],
+                  [
+                    "narrate",
+                    {
+                      "id": "credits",
+                      "speakerId": "speaker",
+                      "text": "Credit.",
+                      "anchor": {
+                        "chapter": "a.md",
+                        "paragraph": -1,
+                        "sentence": -1,
+                        "contentDigest": "ni:///sha-256;I-VU5YNXlRIBQ67zeIyDW_FL0G99j3F3wrs9Dy_PkyY"
+                      }
+                    }
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "digest": "ni:///sha-256;i_B64xyVkuSYNwYbtx52Q_-_y4Rb5nD2s6AeOQxQanA",
+        "primitiveAddresses": [
+          {
+            "tag": "bed",
+            "id": "bed",
+            "address": "ni:///sha-256;uJBRXF8x25NO0CfwmtD6idjx5hER-w4OJpoSLfZ9vNY"
+          },
+          {
+            "tag": "narrate",
+            "id": "a",
+            "address": "ni:///sha-256;EPXXMJC3P1sRc1aO3-V1cAiJMu7OIy7trI1Bqu3m6SY"
+          },
+          {
+            "tag": "silence",
+            "id": "silence:/2/2/2/2/2",
+            "address": "ni:///sha-256;pdsJ1n9Q3pgy2KynbS2Jh2zB4Zta18vraLHMODc3YAQ"
+          },
+          {
+            "tag": "narrate",
+            "id": "credits",
+            "address": "ni:///sha-256;BwvsZvK5vR2Cy5o6WpIMJt8HA1kRtMxlr5P5FBDaFuc"
+          }
+        ]
+      },
+      "cast": {
+        "type": "AudioplayCast",
+        "version": 1,
+        "members": [
+          {
+            "speakerId": "speaker",
+            "characterId": "reader",
+            "voice": {
+              "adapter": "fixture",
+              "voice": "v1",
+              "style": "plain"
+            }
+          }
+        ],
+        "digest": "ni:///sha-256;EXxyTwp8bmcpUl8MibdvA8rDl3do2le_20vje5drq90"
+      },
+      "manifest": {
+        "type": "AudioplayProductionManifest",
+        "version": 1,
+        "scoreDigest": "ni:///sha-256;i_B64xyVkuSYNwYbtx52Q_-_y4Rb5nD2s6AeOQxQanA",
+        "castDigest": "ni:///sha-256;EXxyTwp8bmcpUl8MibdvA8rDl3do2le_20vje5drq90",
+        "pronunciationLexicon": [
+          {
+            "term": "Café",
+            "respelling": "cafe"
+          }
+        ],
+        "soundDesign": {
+          "stems": [
+            "speech"
+          ]
+        },
+        "renderer": {
+          "id": "fixture",
+          "version": 1
+        },
+        "projections": [
+          "wav"
+        ],
+        "extensions": {
+          "objectAudio": {
+            "status": "designed",
+            "standard": "ITU-R BS.2076 ADM",
+            "renderer": null
+          },
+          "readAlong": {
+            "status": "designed",
+            "anchors": "chapter/paragraph/sentence",
+            "format": null
+          },
+          "livePlayer": {
+            "status": "designed",
+            "sceneSwitching": true,
+            "stateAnchors": []
+          }
+        },
+        "digest": "ni:///sha-256;yukuiYFb14wgwAvtWxCtEN-si_TAj8eC4zsk_nDaqEo"
+      }
+    }
+  },
+  "narration": {
+    "input": {
+      "type": "SoundScoreNarrationLayer",
+      "slug": "legacy",
+      "title": "Legacy",
+      "author": "Author",
+      "language": "en",
+      "digest": "ni:///sha-256;5RU4y2p6OZExAsgMmi1WU7dJmCHGKVdaDVFRIhHHcWI",
+      "chapters": [
+        {
+          "index": 0,
+          "path": "one.md",
+          "events": [
+            {
+              "type": "credit",
+              "id": "credit",
+              "text": "Author."
+            },
+            {
+              "type": "narrate",
+              "id": "line",
+              "speakerId": "speaker",
+              "text": "The shelf was still.",
+              "anchor": {
+                "chapter": "one.md",
+                "paragraph": 2,
+                "sentence": 0
+              }
+            },
+            {
+              "type": "pause",
+              "id": "room",
+              "cue": "room-tone",
+              "durationSeconds": 0.3
+            },
+            {
+              "type": "pause",
+              "id": "pause",
+              "durationSeconds": 1.25
+            }
+          ]
+        }
+      ]
+    },
+    "observations": [
+      {
+        "seed": 0,
+        "expected": {
+          "type": "AdmittedSoundScore",
+          "version": 1,
+          "score": [
+            "score",
+            {
+              "type": "SoundScore",
+              "version": 1,
+              "id": "legacy",
+              "title": "Legacy",
+              "author": "Author",
+              "language": "en",
+              "seed": 0,
+              "source": {
+                "kind": "derived-narration-layer",
+                "digest": "ni:///sha-256;5RU4y2p6OZExAsgMmi1WU7dJmCHGKVdaDVFRIhHHcWI"
+              }
+            },
+            [
+              "seq",
+              [
+                "scene",
+                "chapter-0",
+                [
+                  "seq",
+                  [
+                    "narrate",
+                    {
+                      "id": "credit",
+                      "speakerId": "narrator",
+                      "text": "Author.",
+                      "anchor": {
+                        "chapter": "one.md",
+                        "paragraph": -1,
+                        "sentence": -1,
+                        "contentDigest": "ni:///sha-256;6XGgHim2_GgnYju3PvGfZgBrD0w7HC8kG3cH_fS9fwU"
+                      },
+                      "delivery": {
+                        "style": "credit"
+                      }
+                    }
+                  ],
+                  [
+                    "narrate",
+                    {
+                      "id": "line",
+                      "speakerId": "speaker",
+                      "text": "The shelf was still.",
+                      "anchor": {
+                        "chapter": "one.md",
+                        "paragraph": 2,
+                        "sentence": 0
+                      },
+                      "delivery": {
+                        "style": "narration",
+                        "markers": []
+                      }
+                    }
+                  ],
+                  [
+                    "room-tone",
+                    {
+                      "durationSeconds": 0.3,
+                      "seed": "0:room:room"
+                    }
+                  ],
+                  [
+                    "silence",
+                    {
+                      "durationSeconds": 1.25
+                    }
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "digest": "ni:///sha-256;LQhJ6I3GVGyNZDg9VRuP_qCznX2LNTpDhHwUE03V0Bw",
+          "primitiveAddresses": [
+            {
+              "tag": "narrate",
+              "id": "credit",
+              "address": "ni:///sha-256;iE3mJVgS8oabLsvw9bmcHwiDLSDTIusXI8E3JF8lilc"
+            },
+            {
+              "tag": "narrate",
+              "id": "line",
+              "address": "ni:///sha-256;vaKxSMXbhu1TpUo-DFbbIVym50SgfGMuOzpgOIpUQ6M"
+            },
+            {
+              "tag": "room-tone",
+              "id": "room-tone:/2/1/2/3",
+              "address": "ni:///sha-256;umj4q0_jBc8yN7E6oDdgOatyq2B-XLVSFmSEsTym42o"
+            },
+            {
+              "tag": "silence",
+              "id": "silence:/2/1/2/4",
+              "address": "ni:///sha-256;9nAu1oCdKlAywXcmA20-0ekRyuHkYpIzAt1GFvNdiNs"
+            }
+          ]
+        }
+      },
+      {
+        "seed": 561,
+        "expected": {
+          "type": "AdmittedSoundScore",
+          "version": 1,
+          "score": [
+            "score",
+            {
+              "type": "SoundScore",
+              "version": 1,
+              "id": "legacy",
+              "title": "Legacy",
+              "author": "Author",
+              "language": "en",
+              "seed": 561,
+              "source": {
+                "kind": "derived-narration-layer",
+                "digest": "ni:///sha-256;5RU4y2p6OZExAsgMmi1WU7dJmCHGKVdaDVFRIhHHcWI"
+              }
+            },
+            [
+              "seq",
+              [
+                "scene",
+                "chapter-0",
+                [
+                  "seq",
+                  [
+                    "narrate",
+                    {
+                      "id": "credit",
+                      "speakerId": "narrator",
+                      "text": "Author.",
+                      "anchor": {
+                        "chapter": "one.md",
+                        "paragraph": -1,
+                        "sentence": -1,
+                        "contentDigest": "ni:///sha-256;6XGgHim2_GgnYju3PvGfZgBrD0w7HC8kG3cH_fS9fwU"
+                      },
+                      "delivery": {
+                        "style": "credit"
+                      }
+                    }
+                  ],
+                  [
+                    "narrate",
+                    {
+                      "id": "line",
+                      "speakerId": "speaker",
+                      "text": "The shelf was still.",
+                      "anchor": {
+                        "chapter": "one.md",
+                        "paragraph": 2,
+                        "sentence": 0
+                      },
+                      "delivery": {
+                        "style": "narration",
+                        "markers": []
+                      }
+                    }
+                  ],
+                  [
+                    "room-tone",
+                    {
+                      "durationSeconds": 0.3,
+                      "seed": "561:room:room"
+                    }
+                  ],
+                  [
+                    "silence",
+                    {
+                      "durationSeconds": 1.25
+                    }
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "digest": "ni:///sha-256;-3Xs_WdLn5x8Q9h50U0oKpTkezq646XXVCF-4UFpZqo",
+          "primitiveAddresses": [
+            {
+              "tag": "narrate",
+              "id": "credit",
+              "address": "ni:///sha-256;iE3mJVgS8oabLsvw9bmcHwiDLSDTIusXI8E3JF8lilc"
+            },
+            {
+              "tag": "narrate",
+              "id": "line",
+              "address": "ni:///sha-256;vaKxSMXbhu1TpUo-DFbbIVym50SgfGMuOzpgOIpUQ6M"
+            },
+            {
+              "tag": "room-tone",
+              "id": "room-tone:/2/1/2/3",
+              "address": "ni:///sha-256;k8AV1EP7UQgsds4y1bCjRBa-5s4jtHeS64T56jRTT7g"
+            },
+            {
+              "tag": "silence",
+              "id": "silence:/2/1/2/4",
+              "address": "ni:///sha-256;9nAu1oCdKlAywXcmA20-0ekRyuHkYpIzAt1GFvNdiNs"
+            }
+          ]
+        }
+      },
+      {
+        "seed": -7,
+        "expected": {
+          "type": "AdmittedSoundScore",
+          "version": 1,
+          "score": [
+            "score",
+            {
+              "type": "SoundScore",
+              "version": 1,
+              "id": "legacy",
+              "title": "Legacy",
+              "author": "Author",
+              "language": "en",
+              "seed": -7,
+              "source": {
+                "kind": "derived-narration-layer",
+                "digest": "ni:///sha-256;5RU4y2p6OZExAsgMmi1WU7dJmCHGKVdaDVFRIhHHcWI"
+              }
+            },
+            [
+              "seq",
+              [
+                "scene",
+                "chapter-0",
+                [
+                  "seq",
+                  [
+                    "narrate",
+                    {
+                      "id": "credit",
+                      "speakerId": "narrator",
+                      "text": "Author.",
+                      "anchor": {
+                        "chapter": "one.md",
+                        "paragraph": -1,
+                        "sentence": -1,
+                        "contentDigest": "ni:///sha-256;6XGgHim2_GgnYju3PvGfZgBrD0w7HC8kG3cH_fS9fwU"
+                      },
+                      "delivery": {
+                        "style": "credit"
+                      }
+                    }
+                  ],
+                  [
+                    "narrate",
+                    {
+                      "id": "line",
+                      "speakerId": "speaker",
+                      "text": "The shelf was still.",
+                      "anchor": {
+                        "chapter": "one.md",
+                        "paragraph": 2,
+                        "sentence": 0
+                      },
+                      "delivery": {
+                        "style": "narration",
+                        "markers": []
+                      }
+                    }
+                  ],
+                  [
+                    "room-tone",
+                    {
+                      "durationSeconds": 0.3,
+                      "seed": "-7:room:room"
+                    }
+                  ],
+                  [
+                    "silence",
+                    {
+                      "durationSeconds": 1.25
+                    }
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "digest": "ni:///sha-256;yXvPoPnBoPKTeioKCcfZq0K3UfOPcFZtu7V68UBpb7w",
+          "primitiveAddresses": [
+            {
+              "tag": "narrate",
+              "id": "credit",
+              "address": "ni:///sha-256;iE3mJVgS8oabLsvw9bmcHwiDLSDTIusXI8E3JF8lilc"
+            },
+            {
+              "tag": "narrate",
+              "id": "line",
+              "address": "ni:///sha-256;vaKxSMXbhu1TpUo-DFbbIVym50SgfGMuOzpgOIpUQ6M"
+            },
+            {
+              "tag": "room-tone",
+              "id": "room-tone:/2/1/2/3",
+              "address": "ni:///sha-256;XOD45UePc9yqN_0zWHUlYY4I4vX78HevpQfMyu7LYm8"
+            },
+            {
+              "tag": "silence",
+              "id": "silence:/2/1/2/4",
+              "address": "ni:///sha-256;9nAu1oCdKlAywXcmA20-0ekRyuHkYpIzAt1GFvNdiNs"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
